@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン画面</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <section class="box">
+        <div class="title">
+            <h1>Login</h1>
+            <img src="../img/grean2.png" class="login_img" >
+        </div>
+        <div  class="content" >
+            <form method="post" action="/login" name="login_form">
+        
+                <div class="content2">
+                    <div>
+                        <p>username</p>
+                        <input type="text" name="name" placeholder="name" class="textbox">
+                    </div>
+                    <div>
+                        <p>password</p>
+                        <input type="password" name="password" placeholder="Password" class="textbox">
+                    </div>
+
+                    <button type="submit" class="login_button">ログイン</button>
+                </div>
+            </form>
+            <div>
+                <p class="newlogin">Don't have an account?&nbsp;<a href="./touroku/register.html"  target="_blank">Register.</a></p>
+            </div>
+
+        </div>
+
+
+    </section>
+
+</body>
+
+</html>

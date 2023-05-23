@@ -1,0 +1,67 @@
+body{
+    background-color: rgb(255, 247, 247);
+    font-family: 'Darumadrop One', cursive;
+
+
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+
+.box{
+    margin-top: 100px;
+}
+.login_img{
+    width: 100px;
+    height: 100px;
+
+}
+
+.content{
+    font-size: 24px;
+    margin: auto 400px  auto;
+
+    padding-top: 1px;
+    background-color: rgb(241, 238, 238);
+}
+.content2{
+    margin:7%
+    
+}
+.textbox{
+    width: 100%;
+    height: 40px;
+    font-size: 18px;
+}
+.login_button{
+    border: none;
+    text-align: center;
+    margin: 70px 70px auto;
+    width: 80%;
+    height: 60px;
+    margin-bottom: auto;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(218, 202, 202);
+    opacity:0.7;
+}
+.login_button:hover{
+    background-color :#e7d1c8;
+
+}
+h1{
+    text-align: center;
+    font-size: 40px;
+}
+p{
+    text-align: left;
+    font-size: 22px;
+}
+.newlogin{
+    text-align: center;
+    font-size: 20px;
+    opacity:0.7;
+    
+}

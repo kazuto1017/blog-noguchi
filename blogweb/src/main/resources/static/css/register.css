@@ -1,0 +1,29 @@
+
+.content1{
+        font-size: 24px;
+        margin: auto 400px  auto;
+        padding-top: 1px;
+        background-color: rgb(229, 245, 230);
+}
+.register_content{
+    padding-bottom: 30px;
+
+}
+
+
+.register_button{
+    border: none;
+    text-align: center;
+    margin: 70px 70px auto;
+    width: 80%;
+    height: 60px;
+    margin-bottom: auto;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgb(196, 218, 216);
+    opacity:0.7;
+    
+}
+.register_button:hover{
+    background-color :#c5ecc1;
+}
