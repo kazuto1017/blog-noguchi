@@ -1,6 +1,6 @@
 body{
     background-color: rgb(255, 247, 247);
-    font-family: 'Darumadrop One', cursive;
+
 
 
 }
@@ -34,6 +34,7 @@ body{
     width: 100%;
     height: 40px;
     font-size: 18px;
+
 }
 .login_button{
     border: none;
@@ -46,6 +47,7 @@ body{
     font-weight: bold;
     background-color: rgb(218, 202, 202);
     opacity:0.7;
+
 }
 .login_button:hover{
     background-color :#e7d1c8;
@@ -58,6 +60,7 @@ h1{
 p{
     text-align: left;
     font-size: 22px;
+
 }
 .newlogin{
     text-align: center;
