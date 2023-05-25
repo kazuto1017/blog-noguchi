@@ -8,11 +8,11 @@
     <title>ログイン画面</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
             <img src="../img/grean2.png" class="login_img" >
         </div>
         <div  class="content" >
-            <form method="post" action="/login" name="login_form">
+            <form class="form" th:action="@{/user/login/process}" method="post" >
         
                 <div class="content2">
                     <div>
@@ -34,11 +34,11 @@
                         <input type="password" name="password" placeholder="Password" class="textbox">
                     </div>
 
-                    <button type="submit" class="login_button">ログイン</button>
+                    <button type="submit" id="login-button" class="login_button">ログイン</button>
                 </div>
             </form>
             <div>
-                <p class="newlogin">Don't have an account?&nbsp;<a href="./register.html"  target="_blank">Register.</a></p>
+                <p class="newlogin">Don't have an account?&nbsp;<a th:href="@{/user/register}"  target="_blank">Register.</a></p>
             </div>
 
         </div>
