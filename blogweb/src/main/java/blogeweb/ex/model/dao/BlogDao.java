@@ -21,10 +21,11 @@ public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 	/**
 	 * findByUserIdというメソッドを定義します。
 	 * このメソッドは、指定されたuserIdに基づいて、データベース内のBlogEntityを
-	 * 検索するために使用されます。このメソッドは、戻り値としてList<BlogEntity>を返します
+	 * 検索するために使用されます。このメソッドは、戻り値としてList<BlogEntity>を返します  
 	 * 。つまり、userIdに一致する複数のBlogEntityを取得することができます。**/
 	List<BlogEntity> findByUserId(Long userId);
 	/**
+	 * 
 	 *このメソッドは、BlogEntityのオブジェクトを引数として受け取り、
 	 * そのオブジェクトをデータベースに保存します。また、このメソッドの戻り値は、保存されたBlogEntityオブジェクトです。
 	 * 具体的には、このメソッドを実行することで、渡されたBlogEntityオブジェクトがデータベースに保存されます。

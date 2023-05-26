@@ -21,11 +21,38 @@ public class UserLoginController {
 	private HttpSession session;
 	
 	
+	
+	//各階層へ遷移用
 	@GetMapping("/login")
 	public String getUserLoginPage() {
 		return "login.html";
 	}
 	
+//	@GetMapping("/main")
+//	public String getUserMainPage() {
+//		return "main.html";
+//	}
+	
+    @GetMapping("/newblog")
+    public String newBlog() {
+        return "newblog.html";
+    }
+
+    @GetMapping("/edit")
+    public String edit() {
+        return "edit.html";
+    }
+
+    @GetMapping("/mypage")
+    public String myPage() {
+        return "mypage.html";
+    }
+    
+
+	
+	
+	
+	//ログイン処理
 	@PostMapping("/login/process")
 	public String login(@RequestParam String name,@RequestParam String password) {
 		UserEntity userList = userService.loginAccount(name,password);
@@ -33,9 +60,13 @@ public class UserLoginController {
 			return "redirect:/user/login";
 		}else {
 			session.setAttribute("user", userList);
-			return "redirect:/main";
+			return "redirect:/user/blog/main";
 		}
 		
 	}
+	
+	
+	
+	
 
 }

@@ -53,7 +53,7 @@ import lombok.RequiredArgsConstructor;
  */
 @Table(name = "users")
 public class UserEntity {
-	
+
 	/**
 	 * JPAのアノテーションで、プライマリーキーであることを示します
 	 */
@@ -97,6 +97,15 @@ public class UserEntity {
 	@NonNull
 	@Column(name = "register_date")
 	private LocalDateTime registerDate;
+	
+	
+	
+	
+	
+	//name表示用メソッド
+    public String getName() {
+        return this.userName;
+    }
 
 
 
