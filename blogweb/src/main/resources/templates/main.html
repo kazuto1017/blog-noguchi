@@ -18,37 +18,40 @@
 </head>
 
 <body>
-<header>
+	<header>
 
-    <h1 class="logo">
+		<h1 class="logo">
 			<a th:text="${name}" th:href="@{/user/blog/main}"></a>
-    </h1>
-        <ul class="nav__list">
-            <li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
-            <li class="nav__item"><a th:href="@{/user/edit}">編集削除</a></li>
-            <li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
-        </ul>
-    </nav>
-</header>
+		</h1>
+		<ul class="nav__list">
+			<li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
+			<li class="nav__item"><a th:href="@{/user/blog/mainchange}">編集削除</a></li>
+			<li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
+		</ul>
+		</nav>
+	</header>
 	<main>
 		<div>
 			<h1 class="blog__title">ブログ一覧</h1>
 		</div>
 
-		<div class="blog__box">
-			<article class="blog-topic-article" th:each="blog:${blogList}">
-				<div class="blog__container">
-					<div class="blog__img">
-						<img th:src="@{/blog-img/{items}(items=${blog.blogImage})}"></a>
-					</div>
-					<div class="blog__text">
 
+		<article class="blog-topic-article" th:each="blog:${blogList}">
+			<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}">
+				<div class="blog__box">
+					<div class="blog__container">
+						<div class="blog__img">
+							<img th:src="@{/img/{items}(items=${blog.blogImage})}">
+						</div>
+						<div class="blog__text">
 							<h2 th:text=" ${blog.blogTitle}"></h2>
-						<p th:text=" ${blog.category}"></p>
+							<p th:text=" ${blog.category}"></p>
+						</div>
 					</div>
-				</div>
 
-		</div>
+				</div>
+			</a>
+		</article>
 	</main>
 
 

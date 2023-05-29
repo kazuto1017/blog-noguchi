@@ -48,6 +48,13 @@ public class UserLoginController {
         return "mypage.html";
     }
     
+    @GetMapping("/blogok")
+    public String blogok() {
+        return "blogok.html";
+    }
+    
+
+    
 
 	
 	

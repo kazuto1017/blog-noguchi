@@ -7,15 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
-
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" th:href="@{/css/edit.css}">
+	<link rel="stylesheet" th:href="@{/css/newblog.css}">
 	<link rel="stylesheet" th:href="@{/css/header.css}">
-
-
+	<link rel="stylesheet" th:href="@{/css/edit.css}">
 </head>
 
 <body>
@@ -25,7 +23,7 @@
 		</h1>
 		<ul class="nav__list">
 			<li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
-			<li class="nav__item"><a th:href="@{/user/edit}">編集削除</a></li>
+			<li class="nav__item"><a th:href="@{/user/blog/mainchange}">編集削除</a></li>
 			<li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
 		</ul>
 		</nav>
@@ -33,17 +31,50 @@
 
 	<main>
 		<div>
-			<h1 class="edit__title">編集削除</h1>
+			<h1 class="newblog__title">ブログ編集</h1>
 		</div>
+		<div class="edit">
+			<div class="edit__content">
+				<img th:src="@{/img/{items}(items=${blogList.blogImage})}">
+			</div>
+		</div>
+		<form th:action="@{/user/blog/update}" method="post" enctype="multipart/form-data">
+			<table class="newblog__table">
+				<tr>
+					<th class="newblog__item">記事タイトル</th>
+					<td class="newblog__body">
+						<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog__text"
+							autocomplete="off" />
+					</td>
+				</tr>
+				<tr>
+					<th class="newblog__item">サブタイトル</th>
+					<td class="newblog__body">
+						<input type="text" name="category" th:value="${blogList.category}" class="newblog__text"
+							autocomplete="off" />
+					</td>
+				</tr>
+				<tr>
+					<th class="newblog__item">イメージ画像</th>
+					<td class="newblog__body">
+						<input type="file" name="blogImage" accept=".png, .jpg, .jpeg">
+					</td>
+				</tr>
+				<tr>
+					<th class="newblog__item">詳細</th>
+					<td class="newblog__body">
+						<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog__bigtext"
+							autocomplete="off"></textarea>
+					</td>
+				</tr>
+			</table>
+			 <input type="hidden" name="blogId" th:value="${blogList.blogId}">
+			<div class="newblog__div">
+				<button class="newblog__button">変更</button>
+			</div>
 
-		<p>ここにブログの一覧をもってきてクリックしたら編集削除ページに遷移する</p>
-
-
-
-
+		</form>
 	</main>
-
-
 </body>
 
 </html>

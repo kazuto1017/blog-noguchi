@@ -23,7 +23,7 @@
 		</h1>
 		<ul class="nav__list">
 			<li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
-			<li class="nav__item"><a th:href="@{/user/edit}">編集削除</a></li>
+			<li class="nav__item"><a th:href="@{/user/blog/mainchange}">編集削除</a></li>
 			<li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
 		</ul>
 		</nav>
@@ -34,37 +34,43 @@
 		<div>
 			<h1 class="newblog__title">新規投稿</h1>
 		</div>
-<form th:action="@{/user/blog/register/process}" method="post" enctype="multipart/form-data">
-  <table class="newblog__table">
-    <tr>
-      <th class="newblog__item">記事タイトル</th>
-      <td class="newblog__body">
-        <input type="text" name="blogTitle" class="newblog__text" autocomplete="off">
-      </td>
-    </tr>
-    <tr>
-      <th class="newblog__item">サブタイトル</th>
-      <td class="newblog__body">
-        <input type="text" name="category" class="newblog__text" autocomplete="off">
-      </td>
-    </tr>
-    <tr>
-      <th class="newblog__item">イメージ画像</th>
-      <td class="newblog__body">
-        <input type="file" name="blogImage" accept=".png, .jpg, .jpeg">
-      </td>
-    </tr>
-    <tr>
-      <th class="newblog__item">詳細</th>
-      <td class="newblog__body">
-        <textarea name="blogDetail" class="newblog__bigtext" autocomplete="off"></textarea>
-      </td>
-    </tr>
-  </table>
-  <div class="newblog__div">
-    <button type="submit" class="newblog__button">投稿</button>
-  </div>
-</form>
+		<form th:action="@{/user/blog/register/process}" method="post" enctype="multipart/form-data">
+			<table class="newblog__table">
+				<tr>
+					<th class="newblog__item">記事タイトル</th>
+					<td class="newblog__body">
+						<input type="text" name="blogTitle" class="newblog__text" autocomplete="off">
+					</td>
+				</tr>
+				<tr>
+					<th class="newblog__item">サブタイトル</th>
+					<td class="newblog__body">
+						<input type="text" name="category" class="newblog__text" autocomplete="off">
+					</td>
+				</tr>
+
+
+
+
+
+
+				<tr>
+					<th class="newblog__item">イメージ画像</th>
+					<td class="newblog__body">
+						<input type="file" name="blogImage" accept=".png, .jpg, .jpeg">
+					</td>
+				</tr>
+				<tr>
+					<th class="newblog__item">詳細</th>
+					<td class="newblog__body">
+						<textarea name="blogDetail" class="newblog__bigtext" autocomplete="off"></textarea>
+					</td>
+				</tr>
+			</table>
+			<div class="newblog__div">
+				<button type="submit" class="newblog__button">投稿</button>
+			</div>
+		</form>
 
 
 	</main>
@@ -76,4 +82,5 @@
 	</footer>
 
 </body>
+
 </html>

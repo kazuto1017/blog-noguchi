@@ -33,7 +33,7 @@ public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 	BlogEntity save(BlogEntity blogEntity);
 	/**
 	 * このメソッドは、blogTitleとregisterDateを検索条件として使用して、BlogEntityオブジェクトを取得します。**/
-	BlogEntity findByBlogTitleAndRegisterDate(String blogTitle,LocalDate registerDate);
+	BlogEntity findByBlogTitle(String blogTitle);
 	/**
 	 * findByBlogIdというメソッドを定義します。
 	 * このメソッドは、指定されたblogIdに基づいて、データベース内のBlogEntityを

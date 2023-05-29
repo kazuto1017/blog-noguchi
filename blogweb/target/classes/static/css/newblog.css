@@ -42,10 +42,12 @@
 .newblog__button {
 	width: 270px;
 	height: 40px;
-	/*border: none 0px;*/
+	border: none 0px;
 	font-size: 20px;
-	background-color: red;
+	background-color: rgb(241, 222, 222);
 	font-weight: bold;
 	letter-spacing: 3px;
 }
-
+.newblog__button:hover{
+	background-color: rgb(253, 215, 215);
+}

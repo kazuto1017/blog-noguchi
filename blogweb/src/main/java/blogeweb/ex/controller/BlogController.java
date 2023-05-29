@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,52 +31,47 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class BlogController {
-	
+
 	@Autowired
 	private HttpSession session;
 
-	@Autowired 
+	@Autowired
 	private BlogService blogService;
+
+	@Autowired
+	private BlogDao blogRepository;
+
+
+	//データベースからユーザの名前と保存されているブログをmainにもってくる処理
+	@GetMapping("/main")
+	public String mainUser(Model model, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Long userId = user.getUserId();
+		List<BlogEntity>blogList = blogService.findAllBlogPost(userId);
+		model.addAttribute("name", user.getName());	
+		model.addAttribute("blogList", blogList);
+		return "main.html";
+	}
 	
-    @Autowired
-    private BlogDao blogRepository;
+	//編集一覧画面
+	@GetMapping("/mainchange")
+	public String mainchange(Model model, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Long userId = user.getUserId();
+		List<BlogEntity>blogList = blogService.findAllBlogPost(userId);
+		model.addAttribute("name", user.getName());	
+		model.addAttribute("blogList", blogList);
+
+		return "mainchange.html";
+	}
 	
-	
-	//main に行く処理とデータベースからnameをもってくる処理
-    @GetMapping("/main")
-    public String mainUser(Model model, HttpSession session) {
-    	UserEntity user = (UserEntity) session.getAttribute("user");
-        model.addAttribute("name", user.getName());        
-        return "main.html";
-    }
-    
-
-
-    
-
-    @PostMapping("/register/process")
-    public String registerBlog(@RequestParam("blogTitle") String blogTitle,
-                               @RequestParam("category") String category,
-                               @RequestParam("blogDetail") String blogDetail
-
-    		) {
-    	BlogEntity blog = new BlogEntity();
-        blog.setBlogTitle(blogTitle);
-        blog.setCategory(category);
-        blog.setBlogDetail(blogDetail);
-
-
-        
-        blogRepository.save(blog);
-        return "redirect:/user/blog/main";
-    }
-    
-	@PostMapping("/image/update")
-
-	public String blogRegister(
+//formに入力された内容をデータベースに入れる処理
+	@PostMapping("/register/process")
+	public String blogRegister(@RequestParam String blogTitle,
+			@RequestParam String category,
 			@RequestParam("blogImage") MultipartFile blogImage,
-			@RequestParam Long blogId,Model model) {
-
+			@RequestParam String blogDetail,Model model) {
+		
 		UserEntity userList = (UserEntity) session.getAttribute("user");
 		Long userId = userList.getUserId();
 		//画像ファイル名を取得する
@@ -83,7 +79,7 @@ public class BlogController {
 		//ファイルのアップロード処理
 		try {
 			//画像ファイルの保存先を指定する。
-			File blogFile = new File("./src/main/resources/static/blog-img/"+fileName);
+			File blogFile = new File("./src/main/resources/static/img/"+fileName);
 			//画像ファイルからバイナリデータを取得する
 			byte[] bytes = blogImage.getBytes();
 			//画像を保存（書き出し）するためのバッファを用意する
@@ -95,17 +91,43 @@ public class BlogController {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		if (blogService.createBlogPost(blogTitle, fileName, blogDetail, category, userId)) {
+		    return "blogok.html";
+		} else {
+		    model.addAttribute("registerMessage", "既に登録済みです");
+		    return "main.html";
+		}
+	}
+	
+	
+	
+	
+	
+	//mianのブログを選択したらそのブログの編集画面に遷移する処理
+	@GetMapping("/edit/{blogId}")
+	public String getBlogEditPage(@PathVariable Long blogId,Model model) {
+		UserEntity userList = (UserEntity) session.getAttribute("user");
+		String userName = userList.getUserName();
+		model.addAttribute("userName", userName);
 
-		if(blogService.editBlogImage(blogId, fileName, userId)) {
-			return "blog-edit-fix.html";
+		BlogEntity blogList = blogService.getBlogPost(blogId);
+		if(blogList == null) {
+			return "redirecr:/user/blog/main";
 		}else {
-			BlogEntity blogList = blogService.getBlogPost(blogId);
-			model.addAttribute("blogList",blogList);
-			model.addAttribute("editImageMessage", "更新失敗です");
-			return "blog-img-edit.html";
+			model.addAttribute("blogList", blogList);
+			model.addAttribute("editMessage", "記事編集");
+			return "edit.html";
 		}
 
 	}
+	
+	
+	
 
- 	
+	
+
+	
+	
+	
+ 
 }

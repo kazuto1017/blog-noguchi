@@ -83,13 +83,13 @@ public class BlogEntity {
 	 * @DateTimeFormat(pattern = "yyyy-MM-dd") Spring
 	 * Frameworkアノテーションで、このフィールドが日付/時間の形式を持つことを示します。
 	 */
-	@NonNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	@Column(name = "register_date")
-	/**
-	 * フィールド変数で、登録日時を表します。 private LocalDateTime registerDate
-	 */
-	private LocalDate registerDate;
+//	@NonNull
+//	@DateTimeFormat(pattern = "yyyy-MM-dd")
+//	@Column(name = "register_date")
+//	/**
+//	 * フィールド変数で、登録日時を表します。 private LocalDateTime registerDate
+//	 */
+//	private LocalDate registerDate;
 
 	@NonNull
 	@Column(name = "blog_image")
@@ -129,10 +129,9 @@ public class BlogEntity {
 	 * 新しいブログ記事エンティティを作成します。具体的には、以下のフィールドが定義されています。
 	 **/
 
-	public BlogEntity(@NonNull String blogTitle, @NonNull LocalDate registerDate, @NonNull String blogImage,
+	public BlogEntity(@NonNull String blogTitle, @NonNull String blogImage,
 			@NonNull String blogDetail, @NonNull String category, Long userId) {
 		this.blogTitle = blogTitle;
-		this.registerDate = registerDate;
 		this.blogImage = blogImage;
 		this.blogDetail = blogDetail;
 		this.category = category;

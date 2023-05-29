@@ -1,5 +1,10 @@
-.edit__title{
-    margin-top: 60px;
-    margin-bottom: 40px;
-    text-align: center;
+.edit__content {
+	padding: 25px;
+	text-align: center;
+}
+
+.edit__content img {
+	width: 544px;
+	height: 300px;
+
 }

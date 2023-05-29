@@ -17,7 +17,7 @@
 .blog__container{
     display:flex;
     max-width: 750px;
-    height: 200px;
+    height: 235px;
 
     margin:  0 auto;   
     background-color: beige;
@@ -29,6 +29,9 @@
 
     
     
+}
+.blog__img{
+	padding: 15px;
 }
 
 .blog__img img{

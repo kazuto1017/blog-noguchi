@@ -52,15 +52,15 @@ public class BlogService {
 	 * @param userId　ユーザーId
 	 * @return
 	 */
-	public boolean createBlogPost(String blogTitle,LocalDate registerDate,String fileName,String blogDetail,String category,Long userId) {
+	public boolean createBlogPost(String blogTitle,String fileName,String blogDetail,String category,Long userId) {
 		/**
 		 * blogDao.findByBlogTitleAndRegisterDate(blogTitle, registerDate) によって、
 		 * 既に同じタイトルと登録日のブログ記事が存在するかを検索します。**/
-		BlogEntity blogList = blogDao.findByBlogTitleAndRegisterDate(blogTitle, registerDate);
+		BlogEntity blogList = blogDao.findByBlogTitle(blogTitle);
 		/**
 		 * もし、存在しなければ、新しいブログ記事を作成して blogDao.save() によってデータベースに保存します**/
 		if(blogList == null) {
-			blogDao.save(new BlogEntity(blogTitle,registerDate,fileName,blogDetail,category,userId));
+			blogDao.save(new BlogEntity(blogTitle,fileName,blogDetail,category,userId));
 			/**新しいブログ記事が作成され、データベースに保存された場合は、true を返します。**/
 			return true;
 		}else {
@@ -89,7 +89,6 @@ public class BlogService {
 		}else {
 			blogList.setBlogId(blogId);
 			blogList.setBlogTitle(blogTitle);
-			blogList.setRegisterDate(registerDate);
 			blogList.setCategory(category);
 			blogList.setBlogDetail(blogDetail);
 			blogList.setUserId(userId);
