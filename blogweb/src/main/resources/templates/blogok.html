@@ -19,27 +19,32 @@
 
 <body>
 	<header>
-		<h1 class="logo">
-			<a th:href="@{/user/main}" th:text="${userName}">さん</a>
+		<h1 class="logo" 　th:href="@{/user/blog/main}">
+
 		</h1>
-		<ul class="nav__list">
-			<li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
-			<li class="nav__item"><a th:href="@{/user/blog/mainchange}">編集削除</a></li>
-			<li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
+		<ul class="nav-list">
+			<li class="nav-item"><a th:href="@{/user/blog/main}">ホーム</a></li>
+			<li class="nav-item"><a th:href="@{/user/newblog}">新規投稿</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/delete/list}">削除画面</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/logout}">ログアウト</a></li>
 		</ul>
 		</nav>
 	</header>
-    <main>
-        <section class="ok_box">
-            <div class="ok_content">
-                <h2>記事の追加が完了しました</h2>
-                <div class="ok_link">
-                    <a th:href="@{/user/blog/main}">メニューへ戻る</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
+	<main>
+		<section class="ok-box">
+			<div class="ok-content">
+				<h2>記事の追加が完了しました</h2>
+				<div class="ok-link">
+					<a th:href="@{/user/blog/main}">メニューへ戻る</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<footer>
+		<div>
+			<p>Copyright © 2023 Learner All Rights Reserved.</p>
+		</div>
+	</footer>
 </body>
 
 </html>

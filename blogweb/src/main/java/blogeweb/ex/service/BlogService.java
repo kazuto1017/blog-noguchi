@@ -77,58 +77,29 @@ public class BlogService {
 			return blogDao.findByBlogId(blogId);
 		}
 	}
-	/**
-	 * editBlogPostメソッド
-	 * ブログ記事のタイトル、登録日、詳細などの情報を受け取り、指定されたblogIdに対応するブログ記事を更新します。
-	 * blogDao.findByBlogId(blogId)によって、指定されたblogIdに対応するブログ記事を取得し、更新します。
-	 * userIdがnullの場合は、falseを返します。更新に成功した場合は、trueを返します。**/
-	public boolean editBlogPost(String blogTitle,LocalDate registerDate,String blogDetail,String category,Long userId,Long blogId) {
-		BlogEntity blogList = blogDao.findByBlogId(blogId);
-		if(userId == null) {
-			return false;
-		}else {
-			blogList.setBlogId(blogId);
-			blogList.setBlogTitle(blogTitle);
-			blogList.setCategory(category);
-			blogList.setBlogDetail(blogDetail);
-			blogList.setUserId(userId);
-			blogDao.save(blogList);
-			return true;
-		}
+	
+	
+	public boolean editBlogPostAndImage(String blogTitle, String blogDetail, String category, Long userId, Long blogId, String fileName) {
+	    BlogEntity blogList = blogDao.findByBlogId(blogId);
+
+	    if (blogList == null || userId == null) {
+	        return false;
+	    }
+
+	    blogList.setBlogTitle(blogTitle);
+	    blogList.setBlogDetail(blogDetail);
+	    blogList.setCategory(category);
+	    blogList.setUserId(userId);
+
+	    if (fileName != null) {
+	        blogList.setBlogImage(fileName);
+	    }
+
+	    blogDao.save(blogList);
+	    return true;
 	}
-	/**
-	 * public boolean editBlogImage(Long blogId, String fileName, Long userId): 
-	 * メソッド名と引数を定義しています。ブログID、ファイル名、ユーザーIDを引数として受け取ります。戻り値はboolean型です。**/
-	public boolean editBlogImage(Long blogId,String fileName,Long userId) {
-		/**
-		 * BlogEntity blogList = blogDao.findByBlogId(blogId);
-		 *  引数で渡されたブログIDから、ブログ情報を取得します。ブログIDに該当するブログが存在しない場合はnullが返ります。**/
-		BlogEntity blogList = blogDao.findByBlogId(blogId);
-		/**
-		 * if (fileName == null || blogList.getBlogImage().equals(fileName)) { ... }: 
-		 * ファイル名がnullであるか、既に設定されている画像ファイル名と同じである場合は、処理を中断してfalseを返します。**/
-		if(fileName == null || blogList.getBlogImage().equals(fileName)) {
-			return false;
-		}else {
-			/**
-			 * blogList.setBlogId(blogId);: ブログIDを設定します。
-			 * blogList.setBlogImage(fileName);: 新しい画像ファイル名を設定します。
-			 * blogList.setUserId(userId);: ユーザーIDを設定します。
-			 * blogDao.save(blogList);: ブログ情報を更新して保存します。
-			 * return true;: 画像の編集に成功した場合、trueを返します。**/
-			blogList.setBlogId(blogId);
-			blogList.setBlogImage(fileName);
-			blogList.setUserId(userId);
-			blogDao.save(blogList);
-			return true;
-		}
-	}
-	/**deleteByBlogIdメソッドを呼び出すことで、
-	 * 指定されたIDのブログ記事を削除するdeleteBlogメソッドを定義しています。
-	 * メソッドの戻り値の型はbooleanであり、メソッドの実行結果を呼び出し元に返します。
-	 * このメソッドは、引数として渡されたblogIdがnullである場合はfalseを返します。
-	 * そうでない場合は、BlogDaoインターフェースのdeleteByBlogIdメソッドを呼び出して、
-	 * 削除処理を実行し、結果としてtrueを返します。**/
+
+
 	public boolean deleteBlog(Long blogId) {
 		if(blogId == null) {
 			return false;

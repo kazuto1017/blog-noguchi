@@ -3,18 +3,18 @@
 
 
 
-.blog__title{
+.blog-title{
     margin-top: 60px;
     margin-bottom: 60px;
     text-align: center;
 }
 
-.blog__box{
+.blog-box{
     padding-bottom: 35px;
   }
   
 
-.blog__container{
+.blog-container{
     display:flex;
     max-width: 750px;
     height: 235px;
@@ -30,16 +30,16 @@
     
     
 }
-.blog__img{
+.blog-img{
 	padding: 15px;
 }
 
-.blog__img img{
+.blog-img img{
     width:300px;
     height:200px;
 }
 
-.blog__text{
+.blog-text{
     width:100%;
     margin: 20px;
     padding-left: 15px;

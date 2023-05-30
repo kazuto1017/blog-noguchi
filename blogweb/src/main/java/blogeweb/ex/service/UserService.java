@@ -35,7 +35,7 @@ public class UserService {
 			 * 引数として受け取ったuserName、email、password、registerDateを設定します。
 			 * の後、UserDaoのsaveメソッドを呼び出して、 新しいUserEntityオブジェクトを保存します。そして、trueを返します。
 			 **/
-			userDao.save(new UserEntity(name,password, registerDate));
+			userDao.save(new UserEntity(name,password));
 			return true;
 		} else {
 			/** UserEntityが見つかった場合、falseを返します。 **/

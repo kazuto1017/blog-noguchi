@@ -1,0 +1,12 @@
+.newblog-button2 {
+	width: 270px;
+	height: 40px;
+	border: none 0px;
+	font-size: 20px;
+    background-color: rgb(255, 216, 216);
+	font-weight: bold;
+	letter-spacing: 3px;
+}
+.newblog-button2:hover{
+    background-color: rgb(255, 162, 162);
+}

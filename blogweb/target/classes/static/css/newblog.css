@@ -1,32 +1,32 @@
-.newblog__title {
+.newblog-title {
 	margin-top: 60px;
 	margin-bottom: 40px;
 	text-align: center;
 }
 
-.newblog__box {
+.newblog-box {
 	background-color: rgb(223, 190, 190);
 }
 
-.newblog__table {
+.newblog-table {
 	display: flex;
 	justify-content: center;
 }
 
-.newblog__item {
+.newblog-item {
 	padding: 20px;
 }
 
 
 
-.newblog__text {
+.newblog-text {
 	width: 400px;
 	height: 30px;
 
 
 }
 
-.newblog__bigtext {
+.newblog-bigtext {
 	width: 400px;
 	height: 300px;
 	vertical-align: top;
@@ -34,20 +34,20 @@
 
 }
 
-.newblog__div {
+.newblog-div {
 	text-align: center;
 	padding: 30px;
 }
 
-.newblog__button {
+.newblog-button {
 	width: 270px;
 	height: 40px;
 	border: none 0px;
 	font-size: 20px;
-	background-color: rgb(241, 222, 222);
+    background-color: rgb(211, 240, 252);
 	font-weight: bold;
 	letter-spacing: 3px;
 }
-.newblog__button:hover{
-	background-color: rgb(253, 215, 215);
+.newblog-button:hover{
+    background-color: rgb(113, 215, 255);
 }

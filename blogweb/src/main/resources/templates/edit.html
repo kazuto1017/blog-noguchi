@@ -18,63 +18,70 @@
 
 <body>
 	<header>
-		<h1 class="logo">
-			<a th:href="@{/user/main}" th:text="${userName}">さん</a>
+		<h1 class="logo" 　th:href="@{/user/blog/main}">
+
 		</h1>
-		<ul class="nav__list">
-			<li class="nav__item"><a th:href="@{/user/newblog}">新規投稿</a></li>
-			<li class="nav__item"><a th:href="@{/user/blog/mainchange}">編集削除</a></li>
-			<li class="nav__item"><a th:href="@{/user/mypage}">プロフィール</a></li>
+		<ul class="nav-list">
+			<li class="nav-item"><a th:href="@{/user/blog/main}">ホーム</a></li>
+			<li class="nav-item"><a th:href="@{/user/newblog}">新規投稿</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/delete/list}">削除画面</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/logout}">ログアウト</a></li>
 		</ul>
 		</nav>
 	</header>
 
 	<main>
 		<div>
-			<h1 class="newblog__title">ブログ編集</h1>
+			<h1 class="newblog-title">ブログ編集</h1>
 		</div>
 		<div class="edit">
-			<div class="edit__content">
-				<img th:src="@{/img/{items}(items=${blogList.blogImage})}">
+			<div class="edit-content">
+				<img th:src="@{/images/{items}(items=${blogList.blogImage})}">
 			</div>
 		</div>
 		<form th:action="@{/user/blog/update}" method="post" enctype="multipart/form-data">
-			<table class="newblog__table">
+			<table class="newblog-table">
 				<tr>
-					<th class="newblog__item">記事タイトル</th>
-					<td class="newblog__body">
-						<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog__text"
-							autocomplete="off" />
+					<th class="newblog-item">記事タイトル</th>
+					<td class="newblog-body">
+						<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog-text"
+							autocomplete="off">
 					</td>
 				</tr>
 				<tr>
-					<th class="newblog__item">サブタイトル</th>
-					<td class="newblog__body">
-						<input type="text" name="category" th:value="${blogList.category}" class="newblog__text"
-							autocomplete="off" />
+					<th class="newblog-item">サブタイトル</th>
+					<td class="newblog-body">
+						<input type="text" name="category" th:value="${blogList.category}" class="newblog-text"
+							autocomplete="off">
 					</td>
 				</tr>
 				<tr>
-					<th class="newblog__item">イメージ画像</th>
-					<td class="newblog__body">
+					<th class="newblog-item">イメージ画像</th>
+					<td class="newblog-body">
 						<input type="file" name="blogImage" accept=".png, .jpg, .jpeg">
 					</td>
 				</tr>
 				<tr>
-					<th class="newblog__item">詳細</th>
-					<td class="newblog__body">
-						<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog__bigtext"
+					<th class="newblog-item">詳細</th>
+					<td class="newblog-body">
+						<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog-bigtext"
 							autocomplete="off"></textarea>
 					</td>
 				</tr>
 			</table>
-			 <input type="hidden" name="blogId" th:value="${blogList.blogId}">
-			<div class="newblog__div">
-				<button class="newblog__button">変更</button>
-			</div>
+			<input type="hidden" name="blogId" th:value="${blogList.blogId}">
 
+			<div class="newblog-div">
+				<button class="newblog-button">変更</button>
+			</div>
 		</form>
 	</main>
+	
+	<footer>
+		<div>
+			<p>Copyright © 2023 Learner All Rights Reserved.</p>
+		</div>
+	</footer>
 </body>
 
 </html>

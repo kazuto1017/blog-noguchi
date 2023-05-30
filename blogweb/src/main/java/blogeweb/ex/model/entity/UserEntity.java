@@ -90,23 +90,4 @@ public class UserEntity {
 	 * フィールド変数で、パスワードを表します。 private String password
 	 */
 	private String password;
-
-	/**
-	 * フィールド変数で、登録日時を表します。 private LocalDateTime registerDate
-	 */
-	@NonNull
-	@Column(name = "register_date")
-	private LocalDateTime registerDate;
-	
-	
-	
-	
-	
-	//name表示用メソッド
-    public String getName() {
-        return this.userName;
-    }
-
-
-
 }
