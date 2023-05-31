@@ -14,11 +14,7 @@ import blogeweb.ex.model.entity.UserEntity;
  * エンティティのCRUD操作を簡単に実装するためのインターフェースです.
  */
 public interface UserDao extends JpaRepository<UserEntity, Long> {
-	/**
-	 *saveメソッドは、UserEntityを引数として受け取り、
-	 *UserEntityを保存し、保存したUserEntityを返します
-	 */
-	UserEntity save(UserEntity userEntity);
+
 	/**
 	 findByEmailは、String型の引数を受け取り、
 	 その引数と一致するemailを持つUserEntityを返します

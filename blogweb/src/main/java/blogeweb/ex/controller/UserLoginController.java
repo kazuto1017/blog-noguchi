@@ -28,11 +28,6 @@ public class UserLoginController {
 		return "login.html";
 	}
 	
-//	@GetMapping("/main")
-//	public String getUserMainPage() {
-//		return "main.html";
-//	}
-	
     @GetMapping("/newblog")
     public String newBlog() {
         return "newblog.html";
@@ -42,23 +37,8 @@ public class UserLoginController {
     public String edit() {
         return "edit.html";
     }
-
-    @GetMapping("/mypage")
-    public String myPage() {
-        return "mypage.html";
-    }
-    
-    @GetMapping("/blogok")
-    public String blogok() {
-        return "blogok.html";
-    }
     
 
-    
-
-	
-	
-	
 	//ログイン処理
 	@PostMapping("/login/process")
 	public String login(@RequestParam String name,@RequestParam String password) {

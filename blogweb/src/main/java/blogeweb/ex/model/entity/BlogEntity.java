@@ -5,8 +5,6 @@ package blogeweb.ex.model.entity;
 import java.time.LocalDate;
 
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,12 +18,15 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
+
  * このエンティティクラスは、blogsというテーブルを表しています。テーブルのカラムは、以下の通りです。
  * JPAを使用することで、このエンティティクラスはデータベースとのマッピングを簡単に行うことができます。
  * このエンティティクラスのインスタンスをデータベースに保存することができます。
  * さらに、JPAを使用することで、データベースからエンティティクラスのインスタンスを取得することもできます。
  */
 
+
+//データベースの制作
 /**
  * @Data Lombokのアノテーションで、クラスに対してGetter、 Setter、toString、 equals、hashCodeメソッドを
  *       自動生成します。
@@ -79,18 +80,6 @@ public class BlogEntity {
 	 */
 	private String blogTitle;
 
-	/**
-	 * @DateTimeFormat(pattern = "yyyy-MM-dd") Spring
-	 * Frameworkアノテーションで、このフィールドが日付/時間の形式を持つことを示します。
-	 */
-//	@NonNull
-//	@DateTimeFormat(pattern = "yyyy-MM-dd")
-//	@Column(name = "register_date")
-//	/**
-//	 * フィールド変数で、登録日時を表します。 private LocalDateTime registerDate
-//	 */
-//	private LocalDate registerDate;
-
 	@NonNull
 	@Column(name = "blog_image")
 	/**
@@ -119,7 +108,6 @@ public class BlogEntity {
 	/**
 	 * コンストラクターは、6つのパラメータを取ります。それぞれのパラメーターは以下の通りです。
 	 * @NonNull String blogTitle: ブログ記事のタイトルを表す文字列
-	 * @NonNull LocalDate registerDate: ブログ記事の登録日を表す日付
 	 * @NonNull String blogImage: ブログ記事の画像を表す文字列
 	 * @NonNull String blogDetail: ブログ記事の詳細な内容を表す文字列
 	 * @NonNull String category: ブログ記事のカテゴリーを表す文字列

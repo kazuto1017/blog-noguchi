@@ -4,6 +4,7 @@
         margin: auto 400px  auto;
         padding-top: 1px;
         background-color: rgb(229, 245, 230);
+        border-radius: 10px; 
 }
 .register-content{
     padding-bottom: 30px;
@@ -22,6 +23,7 @@
     font-weight: bold;
     background-color: rgb(196, 218, 216);
     opacity:0.7;
+    border-radius: 10px; 
     
 }
 .register-button:hover{

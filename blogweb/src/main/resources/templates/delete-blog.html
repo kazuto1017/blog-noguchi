@@ -14,6 +14,7 @@
 	<link rel="stylesheet" th:href="@{/css/newblog.css}">
 	<link rel="stylesheet" th:href="@{/css/header.css}">
 	<link rel="stylesheet" th:href="@{/css/edit.css}">
+	<link rel="stylesheet" th:href="@{/css/deleteblog.css}">
 </head>
 
 <body>
@@ -32,51 +33,44 @@
 
 	<main>
 		<div>
-			<h1 class="newblog-title">ブログ編集</h1>
+			<h1 class="newblog-title">ブログ削除</h1>
 		</div>
 		<div class="edit">
 			<div class="edit-content">
 				<img th:src="@{/images/{items}(items=${blogList.blogImage})}">
 			</div>
 		</div>
-		<form th:action="@{/user/blog/update}" method="post" enctype="multipart/form-data">
-			<table class="newblog-table">
-				<tr>
-					<th class="newblog-item">記事タイトル</th>
-					<td class="newblog-body">
-						<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog-text"
-							autocomplete="off">
-					</td>
-				</tr>
-				<tr>
-					<th class="newblog-item">サブタイトル</th>
-					<td class="newblog-body">
-						<input type="text" name="category" th:value="${blogList.category}" class="newblog-text"
-							autocomplete="off">
-					</td>
-				</tr>
-				<tr>
-					<th class="newblog-item">イメージ画像</th>
-					<td class="newblog-body">
-						<input type="file" name="blogImage" accept=".png, .jpg, .jpeg">
-					</td>
-				</tr>
-				<tr>
-					<th class="newblog-item">詳細</th>
-					<td class="newblog-body">
-						<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog-bigtext"
-							autocomplete="off"></textarea>
-					</td>
-				</tr>
-			</table>
-			<input type="hidden" name="blogId" th:value="${blogList.blogId}">
 
+		<table class="newblog-table">
+			<tr>
+				<th class="newblog-item">記事タイトル</th>
+				<td class="newblog-body">
+					<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog-text"
+						autocomplete="off">
+				</td>
+			</tr>
+			<tr>
+				<th class="newblog-item">サブタイトル</th>
+				<td class="newblog-body">
+					<input type="text" name="category" th:value="${blogList.category}" class="newblog-text"
+						autocomplete="off">
+				</td>
+			</tr>
+			<tr>
+				<th class="newblog-item">詳細</th>
+				<td class="newblog-body">
+					<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog-bigtext"
+						autocomplete="off"></textarea>
+				</td>
+			</tr>
+		</table>
+		<form th:action="@{/user/blog/delete}" method="post">
+			<input type="hidden" name="blogId" th:value="${blogList.blogId}">
 			<div class="newblog-div">
-				<button class="newblog-button">変更</button>
+				<button class="newblog-button2">削除</button>
 			</div>
 		</form>
 	</main>
-
 	<footer>
 		<div>
 			<p>Copyright © 2023 Learner All Rights Reserved.</p>

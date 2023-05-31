@@ -32,7 +32,6 @@
 		</nav>
 	</header>
 	<main>
-
 		<section class="sapling">
 			<div class="sapling-box">
 				<div class="sapling-div">
@@ -41,11 +40,9 @@
 			</div>
 		</section>
 
-
 		<div>
 			<h1 class="blog-title">ブログ一覧</h1>
 		</div>
-
 
 		<article class="blog-topic-article" th:each="blog:${blogList}">
 			<a th:href="@{/user/blog/edit/{blogId}(blogId=${blog.blogId})}">
@@ -64,17 +61,12 @@
 			</a>
 		</article>
 	</main>
-
+	
 	<footer>
 		<div>
 			<p>Copyright © 2023 Learner All Rights Reserved.</p>
 		</div>
-
 	</footer>
-
-
-
-
+	
 </body>
-
 </html>

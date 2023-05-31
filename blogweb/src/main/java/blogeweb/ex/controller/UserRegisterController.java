@@ -17,10 +17,14 @@ public class UserRegisterController {
 	private UserService userService;
 	
 	
+	//ページ遷移用
 	@GetMapping("/register")
 	public String getUserRegisterPage() {
 		return "register.html";
 	}
+	
+	
+	//ユーザーを新しく登録する処理
 	@PostMapping("/register/process")
 	public String register(@RequestParam String name,@RequestParam String password) {
 		userService.createAccount(name,password);

@@ -11,6 +11,7 @@
 
 .blog-box{
     padding-bottom: 35px;
+
   }
   
 
@@ -22,6 +23,7 @@
     margin:  0 auto;   
     background-color: beige;
     padding: 10px;
+    box-shadow: 10px 10px 0px 0 rgb(174 199 208);
 
 /* 枠線 */
     /* border-style: solid;
@@ -44,6 +46,10 @@
     margin: 20px;
     padding-left: 15px;
 }
+.blog-text h2{
+	border-bottom:1px solid;
+}
+
 
 
 

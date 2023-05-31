@@ -2,7 +2,7 @@ package blogeweb.ex.model.entity;
 
 
 
-import java.time.LocalDateTime;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,6 +27,11 @@ import lombok.RequiredArgsConstructor;
  * このエンティティクラスのインスタンスをデータベースに保存することができます。
  * さらに、JPAを使用することで、データベースからエンティティクラスのインスタンスを取得することもできます。
  */
+
+
+//データベースの制作
+
+
 /**
  * @Data Lombokのアノテーションで、クラスに対してGetter、 Setter、toString、 equals、hashCodeメソッドを
  *       自動生成します。

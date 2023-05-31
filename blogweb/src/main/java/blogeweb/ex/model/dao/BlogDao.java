@@ -1,7 +1,5 @@
 package blogeweb.ex.model.dao;
 
-
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,15 +22,7 @@ public interface BlogDao extends JpaRepository<BlogEntity, Long> {
 	 * 検索するために使用されます。このメソッドは、戻り値としてList<BlogEntity>を返します  
 	 * 。つまり、userIdに一致する複数のBlogEntityを取得することができます。**/
 	List<BlogEntity> findByUserId(Long userId);
-	/**
-	 * 
-	 *このメソッドは、BlogEntityのオブジェクトを引数として受け取り、
-	 * そのオブジェクトをデータベースに保存します。また、このメソッドの戻り値は、保存されたBlogEntityオブジェクトです。
-	 * 具体的には、このメソッドを実行することで、渡されたBlogEntityオブジェクトがデータベースに保存されます。
-	 * 保存されたBlogEntityオブジェクトは、その後の処理で使用することができます。**/
-	BlogEntity save(BlogEntity blogEntity);
-	/**
-	 * このメソッドは、blogTitleとregisterDateを検索条件として使用して、BlogEntityオブジェクトを取得します。**/
+
 	BlogEntity findByBlogTitle(String blogTitle);
 	/**
 	 * findByBlogIdというメソッドを定義します。
