@@ -23,7 +23,7 @@
 		</h1>
 		<ul class="nav-list">
 			<li class="nav-item"><a th:href="@{/user/blog/main}">ホーム</a></li>		
-			<li class="nav-item"><a th:href="@{/user/newblog}">新規投稿</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/newblog}">新規投稿</a></li>
 			<li class="nav-item"><a th:href="@{/user/blog/delete/list}">削除画面</a></li>
 			<li class="nav-item"><a th:href="@{/user/blog/logout}">ログアウト</a></li>
 		</ul>
@@ -35,7 +35,7 @@
 		<div>
 			<h1 class="newblog-title">新規投稿</h1>
 		</div>
-		<form th:action="@{/user/blog/register/process}" method="post" enctype="multipart/form-data">
+		<form th:action="@{/user/blog/register/process}" method="post" enctype="multipart/form-data" >
 			<table class="newblog-table">
 				<tr>
 					<th class="newblog-item">記事タイトル</th>

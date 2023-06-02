@@ -24,7 +24,7 @@
 		</h1>
 		<ul class="nav-list">
 			<li class="nav-item"><a th:href="@{/user/blog/main}">ホーム</a></li>
-			<li class="nav-item"><a th:href="@{/user/newblog}">新規投稿</a></li>
+			<li class="nav-item"><a th:href="@{/user/blog/newblog}">新規投稿</a></li>
 			<li class="nav-item"><a th:href="@{/user/blog/delete/list}">削除画面</a></li>
 			<li class="nav-item"><a th:href="@{/user/blog/logout}">ログアウト</a></li>
 		</ul>
@@ -46,21 +46,21 @@
 				<th class="newblog-item">記事タイトル</th>
 				<td class="newblog-body">
 					<input type="text" name="blogTitle" th:value="${blogList.blogTitle}" class="newblog-text"
-						autocomplete="off">
+						autocomplete="off" readonly>
 				</td>
 			</tr>
 			<tr>
 				<th class="newblog-item">サブタイトル</th>
 				<td class="newblog-body">
 					<input type="text" name="category" th:value="${blogList.category}" class="newblog-text"
-						autocomplete="off">
+						autocomplete="off" readonly>
 				</td>
 			</tr>
 			<tr>
 				<th class="newblog-item">詳細</th>
 				<td class="newblog-body">
 					<textarea name="blogDetail" th:text="${blogList.blogDetail}" class="newblog-bigtext"
-						autocomplete="off"></textarea>
+						autocomplete="off" readonly></textarea>
 				</td>
 			</tr>
 		</table>

@@ -33,9 +33,14 @@ public class BlogController {
 	@Autowired
 	private BlogService blogService;
 
+	//階層へ遷移用
+    @GetMapping("/newblog")
+    public String newBlog() {
+        return "newblog.html";
+    }
 
 
-
+    
 	//データベースからユーザの名前と保存されているブログをmainにもってくる処理
 	@GetMapping("/main")
 	public String mainUser(Model model, HttpSession session) {

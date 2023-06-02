@@ -95,4 +95,14 @@ public class UserEntity {
 	 * フィールド変数で、パスワードを表します。 private String password
 	 */
 	private String password;
+	
+	
+
+	
+	
+	// Constructor with userId and userName
+    public UserEntity(Long userId, String userName) {
+        this.userId = userId;
+        this.userName = userName;
+    }
 }

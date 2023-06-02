@@ -27,6 +27,11 @@ public class UserRegisterController {
 	//ユーザーを新しく登録する処理
 	@PostMapping("/register/process")
 	public String register(@RequestParam String name,@RequestParam String password) {
+		
+		if(name.isEmpty() || password.isEmpty()) {
+			return "register.html";
+		}
+
 		userService.createAccount(name,password);
 		return "redirect:/user/login";
 	}

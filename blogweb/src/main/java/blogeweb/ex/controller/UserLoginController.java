@@ -22,22 +22,12 @@ public class UserLoginController {
 	
 	
 	
-	//各階層へ遷移用
+	//階層へ遷移用
 	@GetMapping("/login")
 	public String getUserLoginPage() {
 		return "login.html";
 	}
 	
-    @GetMapping("/newblog")
-    public String newBlog() {
-        return "newblog.html";
-    }
-
-    @GetMapping("/edit")
-    public String edit() {
-        return "edit.html";
-    }
-    
 
 	//ログイン処理
 	@PostMapping("/login/process")
